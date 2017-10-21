@@ -16,7 +16,8 @@ User
   .create([{
     email: 'rupesh.bhatti@hotmail.com',
     password: 'password',
-    avatar: `${avatarPath}/Avatar.jpg`
+    avatar: `${avatarPath}/Avatar.jpg`,
+    passwordConfirmation: 'password'
   }])
   .then((users) => {
     console.log(`${users.length} users created`);
