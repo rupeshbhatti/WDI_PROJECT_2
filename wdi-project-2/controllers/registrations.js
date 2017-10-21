@@ -16,10 +16,7 @@ function registrationsCreate(req, res, next) {
       if(err.name === 'ValidationError') return res.badRequest('/register', err.toString());
       next(err);
     });
-  // .catch((err) => {
-  //   if(err.name === 'ValidationError') return res.badRequest('/register', err.toString());
-  //   next(err);
-  // });
+    
 }
 
 module.exports = {

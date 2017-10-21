@@ -19,7 +19,7 @@ function sessionsCreate(req, res, next) {
       req.user = user;
 
       req.flash('success', `Welcome back, ${user.email}!`);
-      res.redirect('/');
+      res.redirect('/toons');
     })
     .catch(next);
 }
