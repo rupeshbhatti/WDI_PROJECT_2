@@ -25,7 +25,10 @@ function sessionsCreate(req, res, next) {
 }
 
 function sessionsDelete(req, res) {
-  req.session.regenerate(() => res.redirect('/'));
+  req.session.regenerate(() => {
+    req.flash('success', 'You have logged out');
+    res.redirect('/login');
+  });
 }
 
 module.exports = {

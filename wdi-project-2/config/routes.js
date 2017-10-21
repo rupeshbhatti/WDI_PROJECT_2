@@ -26,7 +26,8 @@ router.route('/register')
 // UPDATE
 
 // DELETE
-
+router.route('/logout')
+  .get(sessions.delete);
 
 router.route('/login')
   .get(sessions.new)
