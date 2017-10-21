@@ -1,6 +1,6 @@
 const express = require('express');
 const registrations = require('../controllers/registrations');
-//const sessions = require('../controllers/sessions');
+const sessions = require('../controllers/sessions');
 const router  = express.Router();
 
 // A home route
@@ -27,5 +27,9 @@ router.route('/register')
 
 // DELETE
 
+
+router.route('/login')
+  .get(sessions.new)
+  .post(sessions.create);
 
 module.exports = router;
