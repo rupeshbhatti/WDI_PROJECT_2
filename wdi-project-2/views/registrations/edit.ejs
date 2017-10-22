@@ -1,0 +1,21 @@
+<form method="POST" action="/profile">
+  <input type="hidden" name="_method" value="PUT">
+  <div>
+    <label for="email">Email</label>
+    <input type="text" name="email" id="email" required value="<%= user.email %>">
+  </div>
+  <div>
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" required>
+  </div>
+  <div>
+    <label for="passwordConfirmation">Password Confirmation</label>
+    <input type="password" name="passwordConfirmation" id="passwordConfirmation" required>
+  </div>
+  <div>
+    <label for="email">Avatar image</label>
+    <input type="text" name="avatar" id="avatar" required value="<%= user.avatar %>">
+  </div>
+
+  <button class="button">Register</button>
+</form>

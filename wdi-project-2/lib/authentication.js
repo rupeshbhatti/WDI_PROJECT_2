@@ -15,10 +15,10 @@ function authentication(req, res, next) {
         });
       }
 
-      req.session.email = user.email;
+      req.session.userId = user.id;
+      req.user = user;
       res.locals.user = user;
       res.locals.isAuthenticated = true;
-      console.log(res.locals.isAuthenticated);
 
       next();
     });

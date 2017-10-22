@@ -8,35 +8,45 @@ const secureRoute = require('../lib/secureRoute');
 // A home route
 router.get('/', (req, res) => res.render('homepage'));
 
-// RESTful routes
-// All URLS should contain the PLURAL... don't chose octopus or people or something silly.
-
-// INDEX
+//toons middleware
 router.route('/toons')
   .get(toons.index)
   .post(secureRoute, toons.create);
 
-// NEW
+router.route('/toons/new')
+  .get(secureRoute, toons.new);
+
+router.route('/toons/:id')
+  .get(toons.show)
+  .put(secureRoute, toons.update)
+  .delete(secureRoute, toons.delete);
+
+router.route('/toons/:id/edit')
+  .get(secureRoute, toons.edit);
+
+router.route('/toons/:id/comments')
+  .post(secureRoute, toons.createComment)
+  .delete(secureRoute, toons.deleteComment);
+
+//registrations middleware
 router.route('/register')
   .get(registrations.new)
   .post(registrations.create);
 
-// SHOW
+router.route('/profile')
+  .get(secureRoute, registrations.show)
+  .put(secureRoute, registrations.update)
+  .delete(secureRoute, registrations.delete);
 
+router.route('/profile/edit')
+  .get(secureRoute, registrations.edit);
 
-// CREATE
-
-
-// EDIT
-
-// UPDATE
-
-// DELETE
-router.route('/logout')
-  .get(sessions.delete);
-
+//sessions middleware
 router.route('/login')
   .get(sessions.new)
   .post(sessions.create);
+
+router.route('/logout')
+  .get(sessions.delete);
 
 module.exports = router;
