@@ -14,7 +14,7 @@ function newRoute(req, res) {
 }
 
 function createRoute(req, res, next) {
-  req.body.createdBy = req.email;
+  req.body.createdBy = req.user;
 
   Toon
     .create(req.body)
@@ -34,10 +34,7 @@ function showRoute(req, res, next) {
       if(!toon) return res.notFound();
       return res.render('toons/show', { toon });
     })
-    .catch(err => {
-   console.log('ERROR', err)
-    next(err)
-   });
+    .catch(next);
 }
 
 function editRoute(req, res, next) {
