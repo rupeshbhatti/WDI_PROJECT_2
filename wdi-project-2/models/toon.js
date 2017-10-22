@@ -18,7 +18,7 @@ const toonSchema = new mongoose.Schema({
 });
 
 toonSchema.methods.belongsTo = function toonBelongsTo(user) {
-  if(typeof this.createdBy.id === 'string') return this.createdBy.id === user.email;
+  if(typeof this.createdBy.id === 'string') return this.createdBy.id === user.id;
   return user.id === this.createdBy.toString();
 };
 

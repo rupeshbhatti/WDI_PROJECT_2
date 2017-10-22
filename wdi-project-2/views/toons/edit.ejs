@@ -1,0 +1,15 @@
+<h1>Edit Toon</h1>
+
+<form method="POST" action="/toons/<%= toon.id %>">
+  <input type="hidden" name="_method" value="PUT">
+  <div class="form-group">
+    <label for="toonName">Toon Name</label>
+    <input type="text" name="toonName" id="toonName" class="form-control" value="<%= toon.toonName %>">
+  </div>
+  <div class="form-group">
+    <label for="imageFilepath">Link to toon image</label>
+    <input type="text" name="imageFilepath" id="imageFilepath" class="form-control" value="<%= toon.imageFilepath %>">
+  </div>
+
+  <button class="btn btn-primary">Add</button>
+</form>
