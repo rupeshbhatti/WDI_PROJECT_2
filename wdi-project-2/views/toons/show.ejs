@@ -2,11 +2,11 @@
   <img src="<%= toon.imageFilepath %>" alt="<%= toon.toonName %>">
   <h2><%= toon.toonName %></h2>
   <% if(locals.isAuthenticated && toon.belongsTo(user)) { %>
-    <a href="/toons/<%= toon.id %>/edit" class="button">Edit</a>
+    <a href="/toons/<%= toon.id %>/edit" class="button">Edit toon</a>
 
     <form method="POST" action="/toons/<%= toon.id %>">
       <input type="hidden" name="_method" value="DELETE">
-      <button class="button alert">Delete</button>
+      <button class="button alert">Delete toon</button>
     </form>
   <% } %>
 
@@ -15,8 +15,14 @@
   <section>
     <h4>Comments</h4>
     <% toon.comments.forEach((comment) => { %>
+      <small>Posted by <%= comment.createdBy.email %>:</small>
       <p><%= comment.content %></p>
-      <small><%= comment.createdBy.email %></small>
+      <% if(locals.isAuthenticated && toon.belongsTo(user)) { %>
+        <form method="POST" action="/toons/<%= toon.id %>/comments/<%= comment.id%>">
+          <input type="hidden" name="_method" value="DELETE">
+          <button class="button alert">Delete comment</button>
+        </form>
+      <% } %>
     <% }) %>
   </section>
 

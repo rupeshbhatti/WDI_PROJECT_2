@@ -107,12 +107,14 @@ function deleteCommentRoute(req, res, next) {
     .exec()
     .then(toon => {
       if (!toon) return res.notFound();
-      if (!toon.belongsTo(req.user)) return res.unauthorized('You do not have permission to delete that resource');
+
+      if (!toon.belongsTo(req.user)) return res.unauthorized('You do not have permission to delete that comment');
+
       toon.comments.id(req.params.commentId).remove();
 
       return toon.save();
     })
-    .then(toon => res.redirect(`/hotels/${toon.id}`))
+    .then(toon => res.redirect(`/toons/${toon.id}`))
     .catch(next);
 }
 

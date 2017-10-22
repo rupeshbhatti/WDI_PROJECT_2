@@ -25,7 +25,10 @@ router.route('/toons/:id/edit')
   .get(secureRoute, toons.edit);
 
 router.route('/toons/:id/comments')
-  .post(secureRoute, toons.createComment)
+  .post(secureRoute, toons.createComment);
+//  .delete(secureRoute, toons.deleteComment);
+
+router.route('/toons/:id/comments/:commentId')
   .delete(secureRoute, toons.deleteComment);
 
 //registrations middleware
