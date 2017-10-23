@@ -1,7 +1,9 @@
-<div class="navbar-fixed">
-<nav>
-  <div class="nav-wrapper green accent-4">
-    <a href="#!" class="brand-logo center">Logo</a>
+<div class="navbar-fixed valign-wrapper">
+  <nav>
+    <div class="nav-wrapper green accent-4">
+      <div>
+        <a href="/toons" class="brand-logo center">iToons</a>
+      </div>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="/toons">Toons</a></li>
         <% if(locals.isAuthenticated) { %>
@@ -10,8 +12,8 @@
         <% } else { %>
           <li><a href="/register">Register</a></li>
           <li><a href="/login">Login</a></li>
-        <% } %>
-      </ul>
-  </div>
-</nav>
+          <% } %>
+        </ul>
+    </div>
+  </nav>
 </div>
