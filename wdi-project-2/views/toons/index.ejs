@@ -4,8 +4,7 @@
     <% toons.forEach((toon) => { %>
       <div class="col s12 m6 l3">
         <div class="card small hoverable">
-          <div class="card-image">
-            <img src="<%= toon.imageFilepath %>">
+          <div class="card-image" style="background-image:url(<%= toon.imageFilepath %>); background-size: cover;">
           </div>
           <div class="card-content">
             <p><%= toon.toonName %></p>
