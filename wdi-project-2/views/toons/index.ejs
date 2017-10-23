@@ -3,18 +3,18 @@
 
     <% toons.forEach((toon) => { %>
       <div class="col s12 m6 l3">
-      <div class="card small">
-      <div class="card-image">
-      <img src="<%= toon.imageFilepath %>">
-      </div>
-      <div class="card-content">
-      <p><%= toon.toonName %></p>
-      <span class="card-title truncate right"><img class ="avatar" src="<%= user.avatar %>" width="40px" height="40px"></span>
-      </div>
-      <div class="card-action">
-      <a href="/toons/<%= toon.id %>">Go to Toon</a>
-      </div>
-      </div>
+        <div class="card small hoverable">
+          <div class="card-image">
+            <img src="<%= toon.imageFilepath %>">
+          </div>
+          <div class="card-content">
+            <p><%= toon.toonName %></p>
+          </div>
+          <div class="card-action">
+            <a href="/toons/<%= toon.id %>">Go to Toon</a>
+            <span class="card-title truncate right"><img class ="avatar" src="<%= user.avatar %>" width="40px" height="40px"></span>
+          </div>
+        </div>
       </div>
       <% }) %>
 
@@ -23,5 +23,5 @@
   </div>
 
   <div class="btn-floating btn-large waves-effect waves-light green accent-4 right">
-    <a href="/toons/new"><i class="material-icons">add_cirle</i></a>
+    <a href="/toons/new"><i class="material-icons pulse">add_cirle</i></a>
   </div>

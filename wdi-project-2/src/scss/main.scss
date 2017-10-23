@@ -1,11 +1,25 @@
-// HELPERS
-// reset
-@import "helpers/reset";
-// variables
-// mixins
+body {
+  font-family: 'Roboto', sans-serif;
+}
 
-// COMPONENTS
-@import "components/generic";
+h1 {
+  font-size: 40px;
+}
 
-// DEBUG
-@import "helpers/debug";
+.big-image {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  height: 300px;
+
+}
+
+header {
+  background-color: #59ce00;
+}
+
+.avatar {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
