@@ -1,21 +1,20 @@
 <div class="large-12 columns">
-  <img src="<%= toon.imageFilepath %>" alt="<%= toon.toonName %>">
   <h2><%= toon.toonName %></h2>
+  <div><img src="<%= toon.imageFilepath %>" alt="<%= toon.toonName %>"></div>
   <% if(locals.isAuthenticated && toon.belongsTo(user)) { %>
-    <a href="/toons/<%= toon.id %>/edit" class="button">Edit toon</a>
+    <div><a href="/toons/<%= toon.id %>/edit" class="button">Edit toon</a></div>
 
     <form method="POST" action="/toons/<%= toon.id %>">
       <input type="hidden" name="_method" value="DELETE">
-      <button class="button alert">Delete toon</button>
+      <div><button class="button alert">Delete toon</button></div>
     </form>
   <% } %>
 
-  <small>Added by: <%= toon.createdBy.email %></small>
-
+  <small>Added by: <img src="/<%= toon.createdBy.avatar %>" width="40px" height="40px"></small>
   <section>
     <h4>Comments</h4>
     <% toon.comments.forEach((comment) => { %>
-      <small>Posted by <%= comment.createdBy.email %>:</small>
+      <small>Posted by <img src="/<%= comment.createdBy.avatar %>" width="40px" height="40px">:</small>
       <p><%= comment.content %></p>
       <% if(locals.isAuthenticated && toon.belongsTo(user)) { %>
         <form method="POST" action="/toons/<%= toon.id %>/comments/<%= comment.id%>">

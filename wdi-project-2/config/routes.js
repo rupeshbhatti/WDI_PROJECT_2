@@ -26,7 +26,6 @@ router.route('/toons/:id/edit')
 
 router.route('/toons/:id/comments')
   .post(secureRoute, toons.createComment);
-//  .delete(secureRoute, toons.deleteComment);
 
 router.route('/toons/:id/comments/:commentId')
   .delete(secureRoute, toons.deleteComment);

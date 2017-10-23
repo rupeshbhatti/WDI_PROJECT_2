@@ -1,9 +1,10 @@
 <% toons.forEach((toon) => { %>
+  <div><a href="/toons/new">Add Toon</a></div>
   <div class="large-12 columns">
     <a href="/toons/<%= toon.id %>">
       <h2><%= toon.toonName %></h2>
       <img class="thumbnail" src="<%= toon.imageFilepath %>">
-      <small>Added by: <%= toon.createdBy.email %></small>
+      <small>Added by: <img src="<%= user.avatar %>" width="40px" height="40px"></small>
     </a>
   </div>
 <% }) %>
