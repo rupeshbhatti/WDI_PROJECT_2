@@ -1,14 +1,15 @@
-<div class="top-bar">
-  <div class="top-bar-right">
-    <ul class="dropdown menu" data-dropdown-menu>
-      <li><a href="/toons">Toons</a></li>
-      <% if(locals.isAuthenticated) { %>
-        <li><a href="/profile"><img src="/<%= user.avatar %>" width="40px" height="40px"></a></li>
-        <li><a href="/logout">Logout</a></li>
-      <% } else { %>
-        <li><a href="/register">Register</a></li>
-        <li><a href="/login">Login</a></li>
-      <% } %>
-    </ul>
+<nav>
+  <div class="nav-wrapper green accent-4">
+    <a href="#!" class="brand-logo center">Logo</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/toons">Toons</a></li>
+        <% if(locals.isAuthenticated) { %>
+          <li><a href="/profile"><img class ="avatar" src="/<%= user.avatar %>" width="40px" height="40px"></a></li>
+          <li><a href="/logout">Logout</a></li>
+        <% } else { %>
+          <li><a href="/register">Register</a></li>
+          <li><a href="/login">Login</a></li>
+        <% } %>
+      </ul>
   </div>
-</div>
+</nav>

@@ -6,14 +6,19 @@
     <% include ./partials/_stylesheets.ejs %>
   </head>
   <body>
-    <% include ./partials/_navbar %>
-    <% for (const type in messages) { %>
-      <p class="alert alert-<%= type %>"><%= messages[type] %></p>
-    <% } %>
+    <header>
+      <% include ./partials/_navbar %>
+    </header>
+    <section class="flash-message">
+      <% for (const type in messages) { %>
+        <p class="alert alert-<%= type %>"><%= messages[type] %></p>
+      <% } %>
+    </section>
     <main class="row">
-      <%- body %>
+      <div>
+        <%- body %>
+      </div>
     </main>
-
     <% include ./partials/_scripts.ejs %>
   </body>
 </html>

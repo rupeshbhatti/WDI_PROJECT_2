@@ -1,5 +1,5 @@
 <div class="large-12 columns">
-  <h2><%= toon.toonName %></h2>
+  <h2 class="truncate"><%= toon.toonName %></h2>
   <div><img src="<%= toon.imageFilepath %>" alt="<%= toon.toonName %>"></div>
   <% if(locals.isAuthenticated && toon.belongsTo(user)) { %>
     <div><a href="/toons/<%= toon.id %>/edit" class="button">Edit toon</a></div>
@@ -10,11 +10,11 @@
     </form>
   <% } %>
 
-  <small>Added by: <img src="/<%= toon.createdBy.avatar %>" width="40px" height="40px"></small>
+  <small>Added by: <img class ="avatar" src="/<%= toon.createdBy.avatar %>" width="40px" height="40px"></small>
   <section>
     <h4>Comments</h4>
     <% toon.comments.forEach((comment) => { %>
-      <small>Posted by <img src="/<%= comment.createdBy.avatar %>" width="40px" height="40px">:</small>
+      <small>Posted by <img class ="avatar" src="/<%= comment.createdBy.avatar %>" width="40px" height="40px">:</small>
       <p><%= comment.content %></p>
       <% if(locals.isAuthenticated && toon.belongsTo(user)) { %>
         <form method="POST" action="/toons/<%= toon.id %>/comments/<%= comment.id%>">
