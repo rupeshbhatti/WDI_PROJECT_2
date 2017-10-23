@@ -4,15 +4,16 @@
     <% toons.forEach((toon) => { %>
       <div class="col s12 m6 l3">
         <div class="card small hoverable">
-          <div class="card-image" style="background-image:url(<%= toon.imageFilepath %>); background-size: cover;">
-          </div>
-          <div class="card-content">
-            <p><%= toon.toonName %></p>
-          </div>
-          <div class="card-action">
-            <a href="/toons/<%= toon.id %>">Go to Toon</a>
-            <span class="card-title truncate right"><img class ="avatar" src="<%= user.avatar %>" width="40px" height="40px"></span>
-          </div>
+          <a href="/toons/<%= toon.id %>">
+            <div class="card-image" style="background-image:url(<%= toon.imageFilepath %>); background-size: cover;">
+            </div>
+            <div class="card-content">
+              <p class="truncate"><%= toon.toonName %></p>
+            </div>
+            <div class="card-action">
+              <span class="card-title truncate right"><img class ="avatar" src="<%= user.avatar %>" width="40px" height="40px"></span>
+            </div>
+          </a>
         </div>
       </div>
       <% }) %>
