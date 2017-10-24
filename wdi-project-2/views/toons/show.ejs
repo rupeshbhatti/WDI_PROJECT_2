@@ -14,12 +14,17 @@
               <div class="row">
                 <div class="card-options">
                   <div class="col s4">
-                    <a href="/toons/<%= toon.id %>/edit" class="btn-floating btn-small waves-effect waves-light green accent-4"><i class="material-icons">mode_edit</i></a>
+                    <% if(locals.isAuthenticated && toon.belongsTo(user)) { %>
+                      <a href="/toons/<%= toon.id %>/edit" class="btn-floating btn-small waves-effect waves-light green accent-4"><i class="material-icons">mode_edit</i></a>
 
-                    <form method="POST" action="/toons/<%= toon.id %>" class="toonDelete">
-                      <input type="hidden" name="_method" value="DELETE">
-                      <button class="btn-floating btn-small waves-effect waves-light red accent-4"><i class="material-icons">delete</i></button>
-                    </form>
+                      <form method="POST" action="/toons/<%= toon.id %>" class="toonDelete">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button class="btn-floating btn-small waves-effect waves-light red accent-4"><i class="material-icons">delete</i></button>
+                      </form>
+                    <%} else { %>
+                      <a class="btn-floating btn-small disabled"><i class="material-icons">mode_edit</i></a>
+                      <button class="btn-floating btn-small disabled"><i class="material-icons">delete</i></button>
+                  <%  } %>
                   </div>
                   <div class="col s4 offset-s4">
                     <span class="card-title truncate right"><img class ="circle" src="<%= toon.createdBy.avatar %>" width="40px" height="40px"></span>
@@ -45,13 +50,17 @@
                 <div class="col s10 comment valign-wrapper">
                   <%= comment.content %>
                 </div>
+                <% if(locals.isAuthenticated && toon.belongsTo(user)) { %>
                 <div class="col s1 comment-actions">
-                  <% if(locals.isAuthenticated && toon.belongsTo(user)) { %>
                     <form method="POST" action="/toons/<%= toon.id %>/comments/<%= comment.id%>" class="commentDelete">
-                      <input type="hidden" name="_method" value="DELETE">
                       <button class="btn-floating btn-small waves-effect waves-light red accent-4"><i class="material-icons">delete</i></button>
                     </form>
                 </div>
+                <% } else { %>
+                  <div class="col s1 comment-actions">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button class="btn-floating btn-small disabled"><i class="material-icons">delete</i></button>
+                  </div>
                 <% } %>
             </div>
             <div class="divider"></div>
