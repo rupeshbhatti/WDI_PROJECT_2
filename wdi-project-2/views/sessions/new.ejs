@@ -2,35 +2,40 @@
   <% if (locals.message) { %>
     <p><%= message %></p>
     <% } %>
-</div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col s8">
+        <h4>Welcome to iToons! Please login</h4>
+        <div class="row">
+          <div class="col s12 offset-s3">
+            <div class="card-panel hoverable">
+              <div class="card-content">
+                <div class="row">
+                  <form method="POST" action="/login">
+                    <div class="input-field col s10">
+                      <i class="material-icons prefix">email</i>
+                      <input id="email" type="email" name="email" class="validate">
+                      <label for="email">Email</label>
+                    </div>
 
-<div class="container">
-    <div class="card-panel hoverable">
-      <h4>Welcome to iToons! Please login</h4>
-      <div class="row">
-        <form class="col s12" method="POST" action="/login">
-          <div class="row">
-              <div class="input-field col s8">
-                <i class="material-icons prefix">email</i>
-                <input id="email" type="email" name="email" class="validate">
-                <label for="email">Email</label>
+                    <div class="input-field col s10">
+                      <i class="material-icons prefix">lock_outline</i>
+                      <input id="password" type="password" name="password" class="validate">
+                      <label for="password">Password</label>
+                    </div>
+
+                    <div class="input-field col s10">
+                      <button class="btn green accent-4 waves-effect waves-light center form-button" type="submit" name="action">Login
+                        <i class="mdi-content-send center"></i>
+                      </button>
+                    </div>
+                  </form>
+                </div>
               </div>
-          </div>
-          <div class="row">
-              <div class="input-field col s8">
-                <i class="material-icons prefix">lock_outline</i>
-                <input id="password" type="password" name="password" class="validate">
-                <label for="password">Password</label>
-              </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <button class="btn green accent-4 waves-effect waves-light center" type="submit" name="action">Login
-                <i class="mdi-content-send center"></i>
-              </button>
             </div>
           </div>
-        </form>
+        </div>
       </div>
     </div>
-</div>
+  </div>

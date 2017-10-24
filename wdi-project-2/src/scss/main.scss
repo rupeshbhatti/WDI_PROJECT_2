@@ -7,7 +7,7 @@ h1 {
 }
 
 .card-image {
-  height: 150px;
+  height: 100%;
 }
 
 .nav-circle {
@@ -62,4 +62,8 @@ header {
 .brand-logo {
   font-weight: 900;
   font-size: 100%;
+}
+
+.form-button {
+  margin-left: 45px;
 }
