@@ -10,7 +10,7 @@ router.get('/', (req, res) => res.render('homepage'));
 
 //toons middleware
 router.route('/toons')
-  .get(toons.index)
+  .get(secureRoute, toons.index)
   .post(secureRoute, toons.create);
 
 router.route('/toons/new')

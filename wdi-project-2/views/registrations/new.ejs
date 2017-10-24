@@ -1,23 +1,63 @@
 <% if (locals.message) { %>
   <p><%= message %></p>
 <% } %>
-<form method="POST" action="/register">
-  <div>
-    <label for="email">Email</label>
-    <input type="text" name="email" id="email">
-  </div>
-  <div>
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password">
-  </div>
-  <div>
-    <label for="passwordConfirmation">Password Confirmation</label>
-    <input type="password" name="passwordConfirmation" id="passwordConfirmation">
-  </div>
-  <div>
-    <label for="avatar">Avatar</label>
-    <input type="text" name="avatar" id="avatar">
-  </div>
 
-  <button>Register</button>
-</form>
+<div class="container">
+  <div class="row">
+    <div class="col s6">
+      <div class="row">
+        <div class="col s12 offset-s6">
+          <h4 class="center-align">Welcome to iToons! Please register</h4>
+          <div class="card-panel hoverable">
+            <div class="card-content">
+              <div class="row">
+                <form method="POST" action="/register" encType="multipart/form-data">
+                  <div class="input-field col s10">
+                    <i class="material-icons prefix">email</i>
+                    <input id="email" type="email" name="email" class="validate">
+                    <label for="email">Email</label>
+                  </div>
+
+                  <div class="input-field col s10">
+                    <i class="material-icons prefix">lock_outline</i>
+                    <input id="password" type="password" name="password" class="validate">
+                    <label for="password">Password</label>
+                  </div>
+
+                  <div class="input-field col s10">
+                    <i class="material-icons prefix">lock_outline</i>
+                    <input id="passwordConfirmation" type="password" name="passwordConfirmation" class="validate">
+                    <label for="passwordConfirmation">Password Confirmation</label>
+                  </div>
+
+                  <%# <div class="input-field col s10">
+                    <i class="material-icons prefix">insert_emoticon</i>
+                    <input id="avatar" type="text" name="avatar" class="validate">
+                    <label for="avatar">Avatar</label>
+                  </div>%>
+
+                  <div class="file-field input-field col s10">
+                    <i class="material-icons prefix">insert_emoticon</i>
+                    <div class="btn green accent-4 waves-effect waves-light center form-button">
+                      <span>Avatar</span>
+                      <input type="file" name="avatar">
+                    </div>
+                    <%# <div class="file-path-wrapper">
+                      <input class="file-path validate" type="text" class="validate">
+                    </div>%>
+                  </div>
+
+                  <div class="input-field col s10">
+                    <button class="btn green accent-4 waves-effect waves-light center form-button" type="submit" name="action">Register
+                      <i class="mdi-content-send center"></i>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

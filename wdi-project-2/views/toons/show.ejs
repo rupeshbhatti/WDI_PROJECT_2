@@ -22,7 +22,7 @@
                     </form>
                   </div>
                   <div class="col s4 offset-s4">
-                    <span class="card-title truncate right"><img class ="circle" src="/<%= toon.createdBy.avatar %>" width="40px" height="40px"></span>
+                    <span class="card-title truncate right"><img class ="circle" src="<%= toon.createdBy.avatar %>" width="40px" height="40px"></span>
                   </div>
                 </div>
               </div>
@@ -40,7 +40,7 @@
           <% toon.comments.forEach((comment) => { %>
             <div class="comment-line valign-wrapper">
                 <div class="col s1 comment-by">
-                  <span><img class ="circle prefix" src="/<%= comment.createdBy.avatar %>" width="40px" height="40px"></span>
+                  <span><img class ="circle prefix" src="<%= comment.createdBy.avatar %>" width="40px" height="40px"></span>
                 </div>
                 <div class="col s10 comment valign-wrapper">
                   <%= comment.content %>

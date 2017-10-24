@@ -6,6 +6,16 @@ function newRoute(req, res) {
 }
 
 function createRoute(req, res, next) {
+
+  const sampleFile = req.files.avatar;
+  
+  sampleFile.mv(`/Users/rupeshbhatti/Development/WDI_PROJECT_2/wdi-project-2/src/images/avatars/${sampleFile.name}`, function(err) {
+    if (err)
+      console.log(err);
+  });
+
+  req.body.avatar = `/images/avatars/${sampleFile.name}`;
+
   User
     .create(req.body)
     .then((user) => {

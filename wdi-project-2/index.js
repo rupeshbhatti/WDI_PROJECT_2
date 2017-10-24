@@ -10,6 +10,7 @@ const routes = require('./config/routes');
 const customResponses = require('./lib/customResponses');
 const authentication = require('./lib/authentication');
 const errorHandler = require('./lib/errorHandler');
+const fileUpload = require('express-fileupload');
 
 const app = express();
 const { port, dbUri, sessionSecret } = require('./config/environment');
@@ -22,6 +23,7 @@ app.set('views', `${__dirname}/views`);
 
 app.use(expressLayouts);
 app.use(express.static(`${__dirname}/public`));
+app.use(fileUpload());
 app.use(morgan('dev'));
 app.use(session({
   secret: sessionSecret,
@@ -38,6 +40,7 @@ app.use(methodOverride(function (req) {
     return method;
   }
 }));
+
 app.use(authentication);
 app.use(routes);
 app.use(errorHandler);
