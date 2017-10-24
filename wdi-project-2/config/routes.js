@@ -6,7 +6,7 @@ const router  = express.Router();
 const secureRoute = require('../lib/secureRoute');
 
 // A home route
-router.get('/', (req, res) => res.render('homepage'));
+router.get('/', (req, res) => res.redirect('/toons'));
 
 //toons middleware
 router.route('/toons')

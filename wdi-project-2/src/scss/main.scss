@@ -6,8 +6,8 @@ h1 {
   font-size: 40px;
 }
 
-.card-image {
-  height: 100%;
+.card-small-image {
+  height: 190px;
 }
 
 .nav-circle {
@@ -16,6 +16,7 @@ h1 {
 
 .card-large-image {
   height: 390px;
+  position: relative;
 }
 
 .toonDelete {
@@ -66,4 +67,16 @@ header {
 
 .form-button {
   margin-left: 45px;
+}
+
+.index-name-and-avatar{
+  width: 100%;
+  height: 60px;
+}
+
+.index-avatar {
+  margin-top: 10px;
+  text-align: center;
+  margin-right: 20px;
+  text-decoration: none;
 }
