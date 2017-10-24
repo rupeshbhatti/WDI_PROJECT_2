@@ -35,30 +35,30 @@
   <div class="row">
     <div class="col s12 m12 l12">
       <div class="divider"></div>
-      <section>
         <h4>Comments</h4>
-        <% toon.comments.forEach((comment) => { %>
-          <span><img class ="circle prefix" src="/<%= comment.createdBy.avatar %>" width="40px" height="40px"></span>
-          <span class="comment"><%= comment.content %></span>
-          <% if(locals.isAuthenticated && toon.belongsTo(user)) { %>
-            <form method="POST" action="/toons/<%= toon.id %>/comments/<%= comment.id%>">
-              <a href="/toons/<%= toon.id %>/edit" class="btn-floating btn-small waves-effect waves-light red accent-4 right"><i class="material-icons">delete</i></a>
-
-              <input type="hidden" name="_method" value="DELETE">
-              <button class="button alert right">Delete comment</button>
-            </form>
+        <div class="divider"></div>
+        <div class="row">
+          <% toon.comments.forEach((comment) => { %>
+            <div class="comment-line valign-wrapper">
+                <div class="col s1 comment-by">
+                  <span><img class ="circle prefix" src="/<%= comment.createdBy.avatar %>" width="40px" height="40px"></span>
+                </div>
+                <div class="col s10 comment valign-wrapper">
+                  <%= comment.content %>
+                </div>
+                <div class="col s1 comment-actions">
+                  <% if(locals.isAuthenticated && toon.belongsTo(user)) { %>
+                    <form method="POST" action="/toons/<%= toon.id %>/comments/<%= comment.id%>" class="commentDelete">
+                      <input type="hidden" name="_method" value="DELETE">
+                      <button class="btn-floating btn-small waves-effect waves-light red accent-4"><i class="material-icons">delete</i></button>
+                    </form>
+                </div>
+                <% } %>
+            </div>
             <div class="divider"></div>
-          <% } %>
-        <% }) %>
-      </section>
-      <% if(locals.isAuthenticated) { %>
-        <section>
-          <h4>Leave a comment</h4>
-          <form method="POST" action="/toons/<%= toon.id %>/comments">
-            <textarea name="content" id="content" placeholder="Comment" required maxlength="255"></textarea>
-            <button class="button">Leave a comment</button>
-          </form>
-        </section>
-      <% } %>
+          <% }) %>
+
+        </div>
     </div>
   </div>
+</div>

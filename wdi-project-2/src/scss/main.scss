@@ -22,9 +22,31 @@ h1 {
   display: inline;
 }
 
-.comment {
-  margin-left: 20px;
+.commentDelete {
+  display: inline;
 }
+
+.comment-line {
+  .comment-by {
+    height: 50px;
+    text-align: center;
+    img {
+      margin-top: 8%;
+    }
+  }
+  .comment {
+    height: 50px;
+  }
+  .comment-actions {
+    height: 50px;
+    display:inline;
+    text-align: center;
+    line-height: 55px;
+  }
+}
+// .comment {
+//   margin-left: 20px;
+// }
 
 header {
   background-color: #59ce00;
