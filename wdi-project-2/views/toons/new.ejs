@@ -1,11 +1,30 @@
-<form method="POST" action="/toons">
-  <div>
-    <label for="toonName">Toon Name</label>
-    <input type="text" name="toonName" id="toonName" required>
-  </div>
-  <div>
-    <label for="imageFilepath">Link to toon image</label>
-    <input type="text" name="imageFilepath" id="imageFilepath" required>
-  </div>
-  <button class="button">Create</button>
-</form>
+<div class="container">
+    <div class="card-panel hoverable">
+      <h4>Add a new toon</h4>
+      <div class="row">
+        <form class="col s12" method="POST" action="/toons">
+          <div class="row">
+              <div class="input-field col s8">
+                <i class="material-icons prefix">tv</i>
+                <input id="toonName" type="text" name="toonName" class="required">
+                <label for="toonName">Toon Name</label>
+              </div>
+          </div>
+          <div class="row">
+              <div class="input-field col s8">
+                <i class="material-icons prefix">insert_link</i>
+                <input id="imageFilepath" type="text" name="imageFilepath" class="required">
+                <label for="imageFilepath">Link to toon image</label>
+              </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <button class="btn green accent-4 waves-effect waves-light center" type="submit" name="action">Add
+                <i class="mdi-content-send center"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>
