@@ -1,37 +1,64 @@
-<div class="large-12 columns">
-  <h2 class="truncate"><%= toon.toonName %></h2>
-  <div><img src="<%= toon.imageFilepath %>" alt="<%= toon.toonName %>"></div>
-  <% if(locals.isAuthenticated && toon.belongsTo(user)) { %>
-    <div><a href="/toons/<%= toon.id %>/edit" class="button">Edit toon</a></div>
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <div class="row">
+        <div class="col s6 offset-s3">
+          <div class="card large">
+            <div class="card-large-image" style="background-image:url(<%= toon.imageFilepath %>); background-size: cover;"></div>
+            <div class="card-content">
+              <div class="row test">
+                <div class="col s12">
+                  <span class="truncate"><%= toon.toonName %></span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="card-options">
+                  <div class="col s4">
+                    <a href="/toons/<%= toon.id %>/edit" class="btn-floating btn-small waves-effect waves-light green accent-4"><i class="material-icons">mode_edit</i></a>
 
-    <form method="POST" action="/toons/<%= toon.id %>">
-      <input type="hidden" name="_method" value="DELETE">
-      <div><button class="button alert">Delete toon</button></div>
-    </form>
-  <% } %>
+                    <form method="POST" action="/toons/<%= toon.id %>" class="toonDelete">
+                      <input type="hidden" name="_method" value="DELETE">
+                      <button class="btn-floating btn-small waves-effect waves-light red accent-4"><i class="material-icons">delete</i></button>
+                    </form>
+                  </div>
+                  <div class="col s4 offset-s4">
+                    <span class="card-title truncate right"><img class ="circle" src="/<%= toon.createdBy.avatar %>" width="40px" height="40px"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s12 m12 l12">
+      <div class="divider"></div>
+      <section>
+        <h4>Comments</h4>
+        <% toon.comments.forEach((comment) => { %>
+          <span><img class ="circle prefix" src="/<%= comment.createdBy.avatar %>" width="40px" height="40px"></span>
+          <span class="comment"><%= comment.content %></span>
+          <% if(locals.isAuthenticated && toon.belongsTo(user)) { %>
+            <form method="POST" action="/toons/<%= toon.id %>/comments/<%= comment.id%>">
+              <a href="/toons/<%= toon.id %>/edit" class="btn-floating btn-small waves-effect waves-light red accent-4 right"><i class="material-icons">delete</i></a>
 
-  <small>Added by: <img class ="avatar" src="/<%= toon.createdBy.avatar %>" width="40px" height="40px"></small>
-  <section>
-    <h4>Comments</h4>
-    <% toon.comments.forEach((comment) => { %>
-      <small>Posted by <img class ="avatar" src="/<%= comment.createdBy.avatar %>" width="40px" height="40px">:</small>
-      <p><%= comment.content %></p>
-      <% if(locals.isAuthenticated && toon.belongsTo(user)) { %>
-        <form method="POST" action="/toons/<%= toon.id %>/comments/<%= comment.id%>">
-          <input type="hidden" name="_method" value="DELETE">
-          <button class="button alert">Delete comment</button>
-        </form>
+              <input type="hidden" name="_method" value="DELETE">
+              <button class="button alert right">Delete comment</button>
+            </form>
+            <div class="divider"></div>
+          <% } %>
+        <% }) %>
+      </section>
+      <% if(locals.isAuthenticated) { %>
+        <section>
+          <h4>Leave a comment</h4>
+          <form method="POST" action="/toons/<%= toon.id %>/comments">
+            <textarea name="content" id="content" placeholder="Comment" required maxlength="255"></textarea>
+            <button class="button">Leave a comment</button>
+          </form>
+        </section>
       <% } %>
-    <% }) %>
-  </section>
-
-  <% if(locals.isAuthenticated) { %>
-    <section>
-      <h4>Leave a comment</h4>
-      <form method="POST" action="/toons/<%= toon.id %>/comments">
-        <textarea name="content" id="content" placeholder="Comment" required maxlength="255"></textarea>
-        <button class="button">Leave a comment</button>
-      </form>
-    </section>
-  <% } %>
-</div>
+    </div>
+  </div>

@@ -7,7 +7,7 @@
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="/toons">Toons</a></li>
         <% if(locals.isAuthenticated) { %>
-          <li><a href="/profile"><img class ="avatar" src="/<%= user.avatar %>" width="40px" height="40px"></a></li>
+          <li><a href="/profile"><img class ="circle nav-circle" src="/<%= user.avatar %>" width="40px" height="40px"></a></li>
           <li><a href="/logout">Logout</a></li>
         <% } else { %>
           <li><a href="/register">Register</a></li>
