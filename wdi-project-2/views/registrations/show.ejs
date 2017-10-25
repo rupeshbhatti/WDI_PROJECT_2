@@ -1,10 +1,55 @@
-<h1><%= user.email %></h1>
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <h4 class="center-align">Your profile</h4>
+        <div class="card-panel">
+          <div class="card-content">
+            <div class="row">
+              <div class="col s12 center-align">
+                <img class ="circle profile-avatar" src="<%= user.avatar %>" width="300px" height="300px">
+              </div>
+              <form method="POST" action="/profile" encType="multipart/form-data">
+                <input type="hidden" name="_method" value="PUT">
+                <%# <div class="row">
+                  <div class="col s6 offset-s3">
+                    <div class="col s12 center-align">
+                      <div class="divider"></div>
+                    </div>
+                  </div>
+                </div>%>
+                <div class="row">
+                  <div class="col s12 center-align">
+                    <p>Changed your email? You can update it below</p>
+                  </div>
+                </div>
 
-<img src="<%= user.avatar %>">
+                <div class="input-field col s10">
+                  <i class="material-icons prefix">email</i>
+                  <input id="email" type="email" name="email" class="validate" value="<%= user.email %>">
+                  <label for="email">Email</label>
+                </div>
 
-<a href="/profile/edit" class="button">Edit</a>
+                <div class="file-field input-field col s10">
+                  <i class="material-icons prefix">insert_emoticon</i>
+                  <div class="btn green accent-4 waves-effect waves-light center form-button">
+                    <span>Avatar</span>
+                    <input type="file" name="avatar">
+                  </div>
+                </div>
 
-<form method="POST" action="/profile">
-  <input type="hidden" name="_method" value="DELETE">
-  <button class="button alert">Delete</button>
-</form>
+                <div class="input-field col s10">
+                  <button class="btn green accent-4 waves-effect waves-light center form-button" type="submit" name="action">Update
+                    <i class="mdi-content-send center"></i>
+                  </button>
+                </div>
+              </form>
+                <%# <div class="center-align"><input type="file" name="avatar"></div>%>
+
+          </div>
+        </div>
+
+
+        </div>
+    </div>
+  </div>
+</div>
