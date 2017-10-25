@@ -8,6 +8,9 @@ const secureRoute = require('../lib/secureRoute');
 // A home route
 router.get('/', (req, res) => res.redirect('/toons'));
 
+// 404 test  route
+router.get('/404', (req, res) => res.render('../views/statics/404'));
+
 //toons middleware
 router.route('/toons')
   .get(secureRoute, toons.index)
