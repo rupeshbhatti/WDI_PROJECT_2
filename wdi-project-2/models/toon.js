@@ -6,7 +6,7 @@ const commentSchema = new mongoose.Schema({
 });
 
 commentSchema.methods.belongsTo = function commentBelongsTo(user) {
-  if(typeof this.createdBy.id === 'string') return this.createdBy.id === user.email;
+  if(typeof this.createdBy.id === 'string') return this.createdBy.id === user.id;
   return user.id === this.createdBy.toString();
 };
 
