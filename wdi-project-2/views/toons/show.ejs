@@ -53,8 +53,9 @@
                 <% if(locals.isAuthenticated && toon.belongsTo(user)) { %>
                 <div class="col s1 comment-actions">
                     <form method="POST" action="/toons/<%= toon.id %>/comments/<%= comment.id%>" class="commentDelete">
+                      <input type="hidden" name="_method" value="DELETE">
                       <button class="btn-floating btn-small waves-effect waves-light red accent-4"><i class="material-icons">delete</i></button>
-                    </form>
+                    </form>  
                 </div>
                 <% } else { %>
                   <div class="col s1 comment-actions">
