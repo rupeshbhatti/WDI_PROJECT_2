@@ -4,15 +4,15 @@
 
 ## Introduction
 
-In week 5 of the course, I developed a fansite for cartoons, written with an EJS frontend and a Node / Express backend. I implemented user registration and login using `express-session`. I experimented for the first time with uploading image files for the user’s avatar during this project (a topic we learnt in class a few weeks later). 
+In week 5 of the course, I developed a fansite for cartoons, written with an EJS frontend and a Node / Express backend. I implemented user registration and login using `express-session`. I experimented for the first time with uploading image files for the user’s avatar during this project (a topic we learnt in class a few weeks later).
 
-## Concept 
+## Concept
 
 The challenge was to build my first fully RESTful Express app. I wanted to build the site around a theme that was fun and one that I knew I would really enjoy: that theme started out as the cartoons that I watched as a child growing up in the 80s. After building the core functionality, I pivoted very slightly: seeing the cartoon fansite in the flesh made me realise that the USP of the site wasn't 80s cartoons but cartoons in general.
 
 ## Technologies
 
-* JavaScript (ES6) 
+* JavaScript (ES6)
 * MongoDB
 * Node / Express
 * SCSS
@@ -38,13 +38,13 @@ The challenge was to build my first fully RESTful Express app. I wanted to build
 
 ## Screenshots
 
-![screenshot1](/screenshots/screenshot1)
+![screenshot1.png](/screenshots/screenshot1.png)
 
-![screenshot2](/screenshots/screenshot2)
+![screenshot2.png](/screenshots/screenshot2.png)
 
-![screenshot3](/screenshots/screenshot3)
+![screenshot3.png](/screenshots/screenshot3.png)
 
-![screenshot4](/screenshots/screenshot4)
+![screenshot4.png](/screenshots/screenshot4.png)
 
 ## Heroku Link
 [https://itoons.herokuapp.com/](https://itoons.herokuapp.com/)
@@ -65,5 +65,3 @@ I would implement the following features next:
 ## Final thoughts
 
 I had a lot of fun designing and building this site! I feel I understood the backend better following the delivery of this project and really saw the value of being able to use Javascript on both the frontend and the backend - which, until recently, couldn't be done!
-
-
